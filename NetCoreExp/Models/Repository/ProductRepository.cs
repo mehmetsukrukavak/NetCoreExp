@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace NetCoreExp.Models.Repository
 {
@@ -31,6 +28,6 @@ namespace NetCoreExp.Models.Repository
             products.Add(entity);
         }
 
-       
+
     }
 }
