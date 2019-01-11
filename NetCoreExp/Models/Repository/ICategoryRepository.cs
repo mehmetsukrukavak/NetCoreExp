@@ -7,7 +7,7 @@ namespace NetCoreExp.Models.Repository
 {
     public interface ICategoryRepository
     {
-        IEnumerable<Category> GetCategories();
+        IEnumerable<Category> Categories { get;  }
 
         void AddCategory(Category entity);
     }

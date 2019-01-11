@@ -23,14 +23,14 @@ namespace NetCoreExp.Models.Repository
             new Product(){ ProductId = 10, ProductName = "Apple Ipad Pro", Price=3000 , CategoryId=3 },
 
         };
+
+        public IEnumerable<Product> Products => products;
+
         public void AddProduct(Product entity)
         {
             products.Add(entity);
         }
 
-        public IEnumerable<Product> GetProducts()
-        {
-            return products;
-        }
+       
     }
 }

@@ -15,8 +15,7 @@ namespace NetCoreExp.Controllers
         }
         public IActionResult Index()
         {
-
-            return View(productRepository.GetProducts());
+            return View(productRepository.GetProducts);
         }
     }
 }
