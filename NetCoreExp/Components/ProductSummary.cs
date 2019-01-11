@@ -14,7 +14,7 @@ namespace NetCoreExp.Components
             productRepository = _productRepository;
         }
 
-        public IViewComponentResult Invoke(bool isApproved)
+        public IViewComponentResult Invoke(int CategoryId, bool isApproved)
         {
             var viewName = "";
             if (isApproved)
@@ -26,7 +26,10 @@ namespace NetCoreExp.Components
                 viewName = "RedCard";
             }
 
-            var products = productRepository.Products.Where(a => a.isApproved == isApproved);
+            var products = CategoryId != 0 ? 
+            
+                productRepository.Products.Where(a => a.CategoryId == CategoryId && a.isApproved == isApproved) :
+                productRepository.Products.Where(a => a.isApproved == isApproved);
 
 
             return View(viewName, new ProductSummaryViewModel()

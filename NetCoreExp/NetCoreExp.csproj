@@ -13,4 +13,7 @@
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="1.0.172" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Home\Components\CategoryMenu\" />
+  </ItemGroup>
 </Project>

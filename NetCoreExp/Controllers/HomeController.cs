@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using NetCoreExp.Models;
 using NetCoreExp.Models.Repository;
 
 namespace NetCoreExp.Controllers
@@ -13,9 +16,31 @@ namespace NetCoreExp.Controllers
             categoryRepository = _categoryRepository;
             productRepository = _productRepository;
         }
+
         public IActionResult Index()
         {
-            return View(productRepository.Products);
+            
+            if (RouteData.Values["id"] == null)
+            {
+                return View(
+                new ProductViewModel()
+                {
+                    Products = productRepository.Products.ToList(),
+                    SelectedCategory = 0
+                });
+                    
+            }
+            else
+            {
+                return View(
+                new ProductViewModel()
+                {
+                    Products = productRepository.Products.Where(p => p.CategoryId.ToString() == RouteData.Values["id"].ToString()).ToList(),
+                    SelectedCategory = Convert.ToInt32(RouteData.Values["id"])
+                });
+
+            }
+
         }
     }
 }
