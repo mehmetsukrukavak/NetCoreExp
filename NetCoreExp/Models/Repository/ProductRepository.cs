@@ -12,7 +12,7 @@ namespace NetCoreExp.Models.Repository
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Product> Get()
+        public IEnumerable<Product> GetProduct()
         {
             throw new NotImplementedException();
         }

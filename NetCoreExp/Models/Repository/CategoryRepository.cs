@@ -7,12 +7,13 @@ namespace NetCoreExp.Models.Repository
 {
     public class CategoryRepository : ICategoryRepository
     {
+        
         public void AddCategory(Category entity)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Category> Get()
+        public IEnumerable<Category> GetCategory()
         {
             throw new NotImplementedException();
         }

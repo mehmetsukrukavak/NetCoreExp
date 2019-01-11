@@ -7,7 +7,7 @@ namespace NetCoreExp.Models.Repository
 {
     public interface IProductRepository
     {
-        IEnumerable<Product> Get();
+        IEnumerable<Product> GetProduct();
 
         void AddProduct(Product entity);
     }
