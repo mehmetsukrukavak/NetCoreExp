@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NetCoreExp.Models;
 using NetCoreExp.Models.Repository;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace NetCoreExp.Components
 {
-    public class ProductSummary:ViewComponent
+    public class ProductSummary : ViewComponent
     {
         private IProductRepository productRepository;
 
@@ -16,9 +14,23 @@ namespace NetCoreExp.Components
             productRepository = _productRepository;
         }
 
-        public string Invoke()
+        public IViewComponentResult Invoke(bool isApproved)
         {
-            return $"{productRepository.Products.Count()} Adet Ürün, {productRepository.Products.Sum(a => a.Price)} TL.";
+            var viewName = "";
+            if (isApproved)
+            {
+                viewName = "GreenCard";
+            }
+            else
+            {
+                viewName = "RedCard";
+            }
+            return View(viewName, new ProductSummaryViewModel()
+            {
+                Count = productRepository.Products.Where(a=> a.isApproved == isApproved).Count(),
+                TotalPrice = productRepository.Products.Where(a => a.isApproved == isApproved).Sum(a => a.Price)
+            });
+            //return new HtmlContentViewComponentResult(new HtmlString($"<strong>{productRepository.Products.Count()}</strong> Adet Ürün, Toplam {productRepository.Products.Sum(a => a.Price)} TL."));
         }
     }
 }

@@ -8,13 +8,13 @@
             <h4>Ürünler</h4>
         </div>
         <div class="col-4 text-right">
-           @await Component.InvokeAsync("ProductSummary")
+          
         </div>
     </div>
 </div>
 <div class="m-1 p-1">
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
             <div class="list-group">
                 <a href="#" class="list-group-item list-group-item-action active">Cras justo odio</a>
                 <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
@@ -22,7 +22,17 @@
                 <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
             </div>
         </div>
-        <div class="col-8">
+        <div class="col-9">
+            <div class="row">
+                <div class="col-md-3">
+                    @await Component.InvokeAsync("ProductSummary", new { isApproved = true })
+                </div>
+                <div class="col-md-3">
+                    @await Component.InvokeAsync("ProductSummary", new { isApproved = false })
+                </div>
+            </div>
+           
+            <br />
             <table class="table table-bordered table-striped table-sm">
                 <thead>
                     <tr>
