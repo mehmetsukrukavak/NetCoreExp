@@ -11,7 +11,7 @@ namespace NetCoreExp.Models.Repository
             new Product(){ ProductId = 3, ProductName = "Apple Macbook Pro", Price=10000, isApproved=true, CategoryId=1 },
 
             new Product(){ ProductId = 4, ProductName = "Apple Iphone  7", Price=3000, isApproved=true, CategoryId=2 },
-            new Product(){ ProductId = 5, ProductName = "Apple Iphone  8", Price=7000, isApproved=false, CategoryId=2 },
+            new Product(){ ProductId = 5, ProductName = "Apple Iphone  8", Price=7000, isApproved=true, CategoryId=2 },
             new Product(){ ProductId = 6, ProductName = "Apple Iphone X", Price=15000, isApproved=true, CategoryId=2 },
 
             new Product(){ ProductId = 7, ProductName = "Apple Ipad 2018", Price=2500, isApproved=true, CategoryId=3 },

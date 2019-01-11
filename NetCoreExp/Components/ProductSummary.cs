@@ -25,10 +25,14 @@ namespace NetCoreExp.Components
             {
                 viewName = "RedCard";
             }
+
+            var products = productRepository.Products.Where(a => a.isApproved == isApproved);
+
+
             return View(viewName, new ProductSummaryViewModel()
             {
-                Count = productRepository.Products.Where(a=> a.isApproved == isApproved).Count(),
-                TotalPrice = productRepository.Products.Where(a => a.isApproved == isApproved).Sum(a => a.Price)
+                Count = products.Count(),
+                TotalPrice = products.Sum(a => a.Price)
             });
             //return new HtmlContentViewComponentResult(new HtmlString($"<strong>{productRepository.Products.Count()}</strong> Adet Ürün, Toplam {productRepository.Products.Sum(a => a.Price)} TL."));
         }
