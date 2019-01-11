@@ -17,8 +17,7 @@ namespace NetCoreExp.Models.Repository
             new Product(){ ProductId = 7, ProductName = "Apple Ipad 2018", Price=3000 , CategoryId=3 },
             new Product(){ ProductId = 8, ProductName = "Apple Ipad 2017", Price=3000 , CategoryId=3 },
             new Product(){ ProductId = 9, ProductName = "Apple Ipad Air", Price=3000 , CategoryId=3 },
-            new Product(){ ProductId = 10, ProductName = "Apple Ipad Pro", Price=3000 , CategoryId=3 },
-
+            new Product(){ ProductId = 10, ProductName = "Apple Ipad Pro", Price=3000 , CategoryId=3 }
         };
 
         public IEnumerable<Product> Products => products;
