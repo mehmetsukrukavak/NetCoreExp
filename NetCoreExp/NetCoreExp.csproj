@@ -15,5 +15,6 @@
 
   <ItemGroup>
     <Folder Include="Views\Home\Components\CategoryMenu\" />
+    <Folder Include="TagHelpers\" />
   </ItemGroup>
 </Project>

@@ -19,7 +19,6 @@ namespace NetCoreExp.Controllers
 
         public IActionResult Index()
         {
-            
             if (RouteData.Values["id"] == null)
             {
                 return View(
@@ -28,7 +27,6 @@ namespace NetCoreExp.Controllers
                     Products = productRepository.Products.ToList(),
                     SelectedCategory = 0
                 });
-                    
             }
             else
             {
@@ -38,9 +36,12 @@ namespace NetCoreExp.Controllers
                     Products = productRepository.Products.Where(p => p.CategoryId.ToString() == RouteData.Values["id"].ToString()).ToList(),
                     SelectedCategory = Convert.ToInt32(RouteData.Values["id"])
                 });
-
             }
+        }
 
+        public IActionResult Create()
+        {
+            return View();
         }
     }
 }
