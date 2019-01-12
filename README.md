@@ -1,3 +1,3 @@
 # NetCoreExp
 
-ViewComponent Example
+ViewComponent & TagHelper Example
