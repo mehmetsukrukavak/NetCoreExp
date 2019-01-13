@@ -17,31 +17,34 @@ namespace NetCoreExp.Controllers
             productRepository = _productRepository;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? id)
         {
-            if (RouteData.Values["id"] == null)
-            {
+            ViewBag.Active = "Home";
+            if (id == null)
+          
                 return View(
                 new ProductViewModel()
                 {
                     Products = productRepository.Products.ToList(),
                     SelectedCategory = 0
                 });
-            }
+           
             else
-            {
+            
                 return View(
                 new ProductViewModel()
                 {
-                    Products = productRepository.Products.Where(p => p.CategoryId.ToString() == RouteData.Values["id"].ToString()).ToList(),
-                    SelectedCategory = Convert.ToInt32(RouteData.Values["id"])
+                    Products = productRepository.Products.Where(p => p.CategoryId.ToString() == id.ToString()).ToList(),
+                    SelectedCategory = (int)id
                 });
-            }
+           
         }
 
         public IActionResult Create()
         {
             return View();
         }
+
+
     }
 }
