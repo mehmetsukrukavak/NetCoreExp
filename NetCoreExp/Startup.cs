@@ -45,6 +45,7 @@ namespace NetCoreExp
                     options.Password.RequireNonAlphanumeric = false;
                 })
                 .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
+                .AddUserValidator<CustomUserValidator>()
                 .AddDefaultTokenProviders();
 
             services.AddSingleton<ICategoryRepository, CategoryRepository>();
