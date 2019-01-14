@@ -19,6 +19,7 @@
             <link-button action="Create" bg-color="success" controller="Admin" name="Kullanıcı Ekleme"></link-button>
         </div>
     </div>
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
     <hr />
     <table class="table table-bordered table-striped table-sm">
         <thead>
@@ -45,7 +46,13 @@
                         <th>@item.Id</th>
                         <td>@item.UserName</td>
                         <td>@item.Email</td>
-                        <td></td>
+                        <td>
+                            <form method="post" asp-action="Delete" asp-route-id="@item.Id">
+                                <link-button action="Update" bg-color="primary" controller="Admin" name="Düzenle"></link-button>
+                                <button type="submit" class="btn btn-danger">Sil</button>
+
+                            </form>
+                        </td>
                     </tr>
                 }
             }

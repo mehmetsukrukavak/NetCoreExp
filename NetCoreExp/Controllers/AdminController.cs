@@ -53,5 +53,32 @@ namespace NetCoreExp.Controllers
             }
             return View(model);
         }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string Id)
+        {
+            var user = await userManager.FindByIdAsync(Id);
+
+            if (user != null)
+            {
+                var result = await userManager.DeleteAsync(user);
+
+                if (result.Succeeded)
+                    return RedirectToAction("Index");
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
+                }
+            }
+            else
+                ModelState.AddModelError("", "Kullanıcı Bulunamadı");
+
+            return View("Index",userManager.Users);
+        }
+
+       
     }
 }
