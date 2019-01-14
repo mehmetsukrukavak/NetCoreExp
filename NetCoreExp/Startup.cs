@@ -30,7 +30,7 @@ namespace NetCoreExp
         {
             services.AddDbContext<ApplicationIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<IPasswordValidator<ApplicationUser>, CustomPasswordValidator>();
+            //services.AddTransient<IPasswordValidator<ApplicationUser>, CustomPasswordValidator>();
             //services.AddTransient<IUserValidator<ApplicationUser>, CustomUserValidator>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(
@@ -46,10 +46,11 @@ namespace NetCoreExp
                 })
                 .AddEntityFrameworkStores<ApplicationIdentityDbContext>()
                 .AddUserValidator<CustomUserValidator>()
+                .AddPasswordValidator<CustomPasswordValidator>()
                 .AddDefaultTokenProviders();
 
             services.AddSingleton<ICategoryRepository, CategoryRepository>();
-            services.AddSingleton<IProductRepository,ProductRepository>();
+            services.AddSingleton<IProductRepository, ProductRepository>();
             services.AddMvc();
         }
 
