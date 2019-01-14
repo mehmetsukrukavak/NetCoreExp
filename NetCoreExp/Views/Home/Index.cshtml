@@ -22,7 +22,7 @@
         <div class="col-9">
             <div class="row">
                 <div class="col">
-                   @* <a asp-action="Create" asp-controller="Home" bs-button-color="success">+</a> *@
+                    @* <a asp-action="Create" asp-controller="Home" bs-button-color="success">+</a> *@
                     <link-button action="Create" bg-color="success" controller="Home" name="Ürün Ekleme"></link-button>
                 </div>
             </div>
@@ -47,15 +47,25 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.Products)
+                    @if (Model.Products.Count() == 0)
                     {
                         <tr>
-                            <th>@item.ProductId</th>
-                            <td>@item.ProductName</td>
-                            <td>@item.Price</td>
-                            <td></td>
+                            <th colspan="4" class="text-center">Ürün Bulunamadı</th>
                         </tr>
                     }
+                    else
+                    {
+                        @foreach (var item in Model.Products)
+                        {
+                            <tr>
+                                <th>@item.ProductId</th>
+                                <td>@item.ProductName</td>
+                                <td>@item.Price</td>
+                                <td></td>
+                            </tr>
+                        }
+                    }
+
                 </tbody>
             </table>
 
