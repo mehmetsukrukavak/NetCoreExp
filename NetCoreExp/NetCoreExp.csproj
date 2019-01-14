@@ -11,8 +11,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.0" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="1.0.172" />
-    
-    
+
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Verison="2.0.0"></DotNetCliToolReference>
      
   </ItemGroup>
 
