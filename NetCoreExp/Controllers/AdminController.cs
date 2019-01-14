@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using NetCoreExp.Models;
+using System.Threading.Tasks;
 
 namespace NetCoreExp.Controllers
 {
@@ -40,16 +37,10 @@ namespace NetCoreExp.Controllers
                 var result = await userManager.CreateAsync(user, model.Password);
 
                 if (result.Succeeded)
-                {
                     return RedirectToAction("Index");
-                }
                 else
-                {
                     foreach (var item in result.Errors)
-                    {
                         ModelState.AddModelError("", item.Description);
-                    }
-                }
             }
             return View(model);
         }
@@ -66,19 +57,13 @@ namespace NetCoreExp.Controllers
                 if (result.Succeeded)
                     return RedirectToAction("Index");
                 else
-                {
                     foreach (var item in result.Errors)
-                    {
                         ModelState.AddModelError("", item.Description);
-                    }
-                }
             }
             else
                 ModelState.AddModelError("", "Kullanıcı Bulunamadı");
 
-            return View("Index",userManager.Users);
+            return View("Index", userManager.Users);
         }
-
-       
     }
 }

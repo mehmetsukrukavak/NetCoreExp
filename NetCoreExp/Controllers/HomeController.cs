@@ -1,8 +1,7 @@
-﻿using System;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using NetCoreExp.Models;
 using NetCoreExp.Models.Repository;
+using System.Linq;
 
 namespace NetCoreExp.Controllers
 {
@@ -21,23 +20,19 @@ namespace NetCoreExp.Controllers
         {
             ViewBag.Active = "Home";
             if (id == null)
-          
                 return View(
                 new ProductViewModel()
                 {
                     Products = productRepository.Products.ToList(),
                     SelectedCategory = 0
                 });
-           
             else
-            
                 return View(
                 new ProductViewModel()
                 {
                     Products = productRepository.Products.Where(p => p.CategoryId.ToString() == id.ToString()).ToList(),
                     SelectedCategory = (int)id
                 });
-           
         }
 
         public IActionResult Create()
