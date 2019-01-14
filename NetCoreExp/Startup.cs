@@ -31,10 +31,13 @@ namespace NetCoreExp
             services.AddDbContext<ApplicationIdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<IPasswordValidator<ApplicationUser>, CustomPasswordValidator>();
+            //services.AddTransient<IUserValidator<ApplicationUser>, CustomUserValidator>();
 
             services.AddIdentity<ApplicationUser, IdentityRole>(
                 options =>
                 {
+                    options.User.RequireUniqueEmail = true;
+                    
                     options.Password.RequiredLength = 7;                    
                     options.Password.RequireLowercase = false;
                     options.Password.RequireDigit = false;
