@@ -2,7 +2,7 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
-NetCoreExp/NetCoreExp/wwwroot/lib/* linguist-vendored
+#NetCoreExp/NetCoreExp/wwwroot/lib/* linguist-vendored
 ###############################################################################
 # Set default behavior for command prompt diff.
 #
