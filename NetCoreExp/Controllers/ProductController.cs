@@ -5,12 +5,12 @@ using System.Linq;
 
 namespace NetCoreExp.Controllers
 {
-    public class HomeController : Controller
+    public class ProductController : Controller
     {
         private ICategoryRepository categoryRepository;
         private IProductRepository productRepository;
 
-        public HomeController(ICategoryRepository _categoryRepository, IProductRepository _productRepository)
+        public ProductController(ICategoryRepository _categoryRepository, IProductRepository _productRepository)
         {
             categoryRepository = _categoryRepository;
             productRepository = _productRepository;
