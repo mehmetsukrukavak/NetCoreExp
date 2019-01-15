@@ -46,5 +46,14 @@ namespace NetCoreExp.Controllers
             }
             return View(model);
         }
+
+        public async Task<IActionResult> Logout(string returnUrl)
+        {
+
+            await signInManager.SignOutAsync();
+
+            return Redirect(returnUrl ?? "/");
+
+        }
     }
 }
