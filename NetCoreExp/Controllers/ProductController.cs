@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using NetCoreExp.Models;
 using NetCoreExp.Models.Repository;
 using System.Linq;
 
 namespace NetCoreExp.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         private ICategoryRepository categoryRepository;

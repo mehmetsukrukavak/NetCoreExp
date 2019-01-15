@@ -33,6 +33,7 @@ namespace NetCoreExp
             //services.AddTransient<IPasswordValidator<ApplicationUser>, CustomPasswordValidator>();
             //services.AddTransient<IUserValidator<ApplicationUser>, CustomUserValidator>();
 
+            //services.ConfigureApplicationCookie(opt => opt.LoginPath = "/Member/Login");
             services.AddIdentity<ApplicationUser, IdentityRole>(
                 options =>
                 {
