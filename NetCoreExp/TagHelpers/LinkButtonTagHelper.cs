@@ -13,12 +13,14 @@ namespace NetCoreExp.TagHelpers
 
         public string Name { get; set; }
 
+        public string Id { get; set; }
+
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             output.TagName = "a";
             output.TagMode = TagMode.StartTagAndEndTag;
             output.Attributes.SetAttribute("class", $"btn btn-{BgColor}");
-            output.Attributes.SetAttribute("href", $"/{Controller}/{Action}");
+            output.Attributes.SetAttribute("href", $"/{Controller}/{Action}/{Id}");
             output.Content.SetContent(Name);
         }
     }

@@ -48,9 +48,9 @@
                         <td>@item.Email</td>
                         <td>
                             <form method="post" asp-action="Delete" asp-route-id="@item.Id">
-                                <link-button action="Update" bg-color="primary" controller="Admin" name="Düzenle"></link-button>
+                                <link-button action="Update" id="@item.Id" bg-color="primary" controller="Admin" name="Düzenle"></link-button>
                                 <button type="submit" class="btn btn-danger">Sil</button>
-
+                               
                             </form>
                         </td>
                     </tr>
