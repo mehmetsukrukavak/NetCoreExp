@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 namespace NetCoreExp.Controllers
 {
     [Authorize]
-    public class AdminController : Controller
+    public class KullaniciController : Controller
     {
         private UserManager<ApplicationUser> userManager;
         private IPasswordValidator<ApplicationUser> passwordValidator;
         private IPasswordHasher<ApplicationUser> passwordHasher;
 
-        public AdminController(UserManager<ApplicationUser> _userManager,
+        public KullaniciController(UserManager<ApplicationUser> _userManager,
             IPasswordValidator<ApplicationUser> _passwordValidator,
             IPasswordHasher<ApplicationUser> _passwordHasher)
         {

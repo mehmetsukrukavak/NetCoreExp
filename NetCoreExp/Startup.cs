@@ -73,7 +73,7 @@ namespace NetCoreExp
             {
                 routes.MapRoute(
                     name: "default",
-                     template: "{controller=Admin}/{action=Create}/{id?}"
+                     template: "{controller=Product}/{action=Index}/{id?}"
                     );
             });
         }

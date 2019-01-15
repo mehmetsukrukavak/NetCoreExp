@@ -13,19 +13,19 @@
 </div>
 
 <div class="m-1 p-1">
-    <div class="row">
+    <div class="m-1 row" >
         <div class="col">
             @* <a asp-action="Create" asp-controller="Home" bs-button-color="success">+</a> *@
-            <link-button action="Create" bg-color="success" controller="Admin" name="Kullanıcı Ekleme"></link-button>
+            <link-button action="Create" bg-color="success" controller="Kullanici" name="Kullanıcı Ekleme"></link-button>
         </div>
     </div>
     <div class="text-danger" asp-validation-summary="ModelOnly"></div>
-    <hr />
+
     <table class="table table-bordered table-striped table-sm">
         <thead>
             <tr>
-                <th>User Id</th>
-                <th>UserName</th>
+                <th>Kullanıcı Id</th>
+                <th>Kullanıcı Adı</th>
                 <th>Email</th>
                 <th></th>
 
@@ -48,7 +48,7 @@
                         <td>@item.Email</td>
                         <td>
                             <form method="post" asp-action="Delete" asp-route-id="@item.Id">
-                                <link-button action="Update" id="@item.Id" bg-color="primary" controller="Admin" name="Düzenle"></link-button>
+                                <link-button action="Update" id="@item.Id" bg-color="primary" controller="Kullanici" name="Düzenle"></link-button>
                                 <button type="submit" class="btn btn-danger">Sil</button>
                                
                             </form>

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<IdentityRole>
+@{
+    ViewData["Title"] = "Kullanıcı";
+}
+<div class="m-1 p-4 bg-primary">
+    <div class="row text-white">
+        <div class="col-9">
+            <h4>Rol İşlemleri</h4>
+        </div>
+        <div class="col-3">
+        </div>
+    </div>
+</div>
+
+<div class="m-1 p-1">
+    <div class="m-1 row" >
+        <div class="col">
+            @* <a asp-action="Create" asp-controller="Home" bs-button-color="success">+</a> *@
+            <link-button action="Create" bg-color="success" controller="Rol" name="Rol Ekleme"></link-button>
+        </div>
+    </div>
+    @if(TempData["message"] != null){
+    <div class="m-2 alert alert-success">@TempData["message"]</div>
+    }
+    <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+    <table class="table table-bordered table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Rol Id</th>
+                <th>Rol Adı</th>
+                <th>Kullanıcılar</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <th colspan="4" class="text-center">Rol Bulunamadı</th>
+                </tr>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th>@item.Id</th>
+                        <td>@item.Name</td>
+                        <td identity-role="@item.Id"></td>
+                        <td>
+                            <form method="post" asp-action="Delete" asp-route-id="@item.Id">
+                                <link-button action="Update" id="@item.Id" bg-color="primary" controller="Rol" name="Düzenle"></link-button>
+                                <button type="submit" class="btn btn-danger">Sil</button>
+
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
