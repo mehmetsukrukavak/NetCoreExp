@@ -6,13 +6,13 @@
         if (item.CategoryId.ToString() == Model.SelectedCategory)
         {
             <a asp-action="Index"
-               asp-controller="Home"
+               asp-controller="Product"
                asp-route-id="@item.CategoryId" class="list-group-item list-group-item-action active">@item.CategoryName</a>
         }
         else
         {
             <a asp-action="Index"
-               asp-controller="Home"
+               asp-controller="Product"
                asp-route-id="@item.CategoryId" class="list-group-item list-group-item-action">@item.CategoryName</a>
         }
 
