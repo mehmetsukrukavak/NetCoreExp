@@ -1,0 +1,74 @@
+﻿@model RolDetails
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="m-1 p-4 bg-primary">
+    <div class="row text-white">
+        <div class="col">
+            <h4>Rol Düzenleme</h4>
+        </div>
+    </div>
+</div>
+
+<div class="m-1 p-1">
+    <form asp-action="Update" method="post">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <input type="hidden" name="RoleId" value="@Model.Rol.Id" />
+        <input type="hidden" name="RoleName" value="@Model.Rol.Name" />
+
+        <h6 class="bg-info p-1 text-white">
+            @Model.Rol.Name Rolüne Eklenecekler
+        </h6>
+        <table class="table table-bordered table-sm">
+            @if (Model.NonMembers.Count() == 0)
+            {
+                <tr>
+                    <td colspan="2">Bütün Kullanıcılar bu rolde var</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    @foreach (var user in Model.NonMembers)
+                    {
+                        <td>@user.UserName</td>
+                        <td>
+                            <input type="checkbox" name="IdsToAdd" value="@user.Id" />
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+
+        <h6 class="bg-info p-1 text-white">
+            @Model.Rol.Name Rolünden Silinecekler
+        </h6>
+        <table class="table table-bordered table-sm">
+            @if (Model.Members.Count() == 0)
+            {
+                <tr>
+                    <td colspan="2">Bu Rolde Hiç Kullanıcı Yok.</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    @foreach (var user in Model.Members)
+                    {
+                        <td>@user.UserName</td>
+                        <td>
+                            <input type="checkbox" name="IdsToDelete" value="@user.Id" />
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+
+        <input type="submit" class="btn btn-success" value="Kaydet" />
+
+        <link-button action="Index" bg-color="danger" controller="Rol" name="Listeye Dön"></link-button>
+    </form>
+</div>
+
+

@@ -19,7 +19,7 @@ namespace NetCoreExp.TagHelpers
             roleManager = _roleManager;
         }
 
-        [HtmlAttributeName("identity-rol")]
+        [HtmlAttributeName("identity-role")]
         public string Role { get; set; }
 
         public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
