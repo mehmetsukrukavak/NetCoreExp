@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NetCoreExp.Controllers
 {
-    [Authorize]
+    [Authorize(Roles ="Admin")]
     public class KullaniciController : Controller
     {
         private UserManager<ApplicationUser> userManager;

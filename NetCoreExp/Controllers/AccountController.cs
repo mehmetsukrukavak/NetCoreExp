@@ -55,5 +55,10 @@ namespace NetCoreExp.Controllers
             return Redirect(returnUrl ?? "/");
 
         }
+
+        public IActionResult AccessDenied()
+        {
+            return View();
+        }
     }
 }

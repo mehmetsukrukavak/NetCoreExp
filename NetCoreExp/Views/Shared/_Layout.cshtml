@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNetCore.Identity
-@inject SignInManager<ApplicationUser> SignInManager
-@inject UserManager<ApplicationUser> UserManager
+﻿
 <!DOCTYPE html>
 
 <html>
@@ -18,18 +16,22 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        @if (SignInManager.IsSignedIn(User))
+        @if (User.Identity.IsAuthenticated)
         {
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/Product/Index">Ürün İşlemleri</a>
-                <a class="nav-item nav-link" href="/Kullanici/Index">Kullanıcı İşlemleri</a>
-                <a class="nav-item nav-link" href="/Rol/Index">Rol İşlemleri</a>
-                <a class="nav-item nav-link" href="/Account/Logout">Çıkış</a>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link" href="/Product/Index">Ürün İşlemleri</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a class="nav-item nav-link" href="/Kullanici/Index">Kullanıcı İşlemleri</a>
+                        <a class="nav-item nav-link" href="/Rol/Index">Rol İşlemleri</a>
+                    }
+
+                    <a class="nav-item nav-link" href="/Account/Logout">@User.Identity.Name Çıkış</a>
+                </div>
             </div>
-        </div>
         }
-        
+
     </nav>
     @RenderBody()
 </body>
